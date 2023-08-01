@@ -1,0 +1,155 @@
+{'cl2' : 0, 'hocl' : 0, 'cl2o' : 0, 'cl_' : 0, 'cl3_' : 0, 'ocl_' : 3.3e-4, 'br2' : 0, 'hobr' : 0, 'br2o' : 0, 'br_' : 3.47e-4, 'br3_' : 0, 'obr_' : 0,'brcl' : 0, 'br2cl_' : 0, 'brcl2_' : 0, 'brocl' : 0,'hp' : 1.00e-7, 'oh_' : 1.00e-7, 'nap' : 1.67e-3}
+{'cl2' : 0, 'hocl' : 0, 'cl2o' : 0, 'cl_' : 0, 'cl3_' : 0, 'ocl_' : 0, 'br2' : 0, 'hobr' : 0, 'br2o' : 0, 'br_' : 0, 'br3_' : 0, 'obr_' : 0, 'brcl' : 0, 'br2cl_' : 0, 'brcl2_' : 0, 'brocl' : 0, 'hp' : 0, 'oh_' : 0, 'nap' : 0}
+({ 'eqn' : 'HOCl + Br- ->  HOBr + Cl-',
+ 'largek' : 1.5e5,
+ 'left' : ['hocl','br_'],
+ 'right' : ['hobr', 'cl_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1,1] 
+                 }
+},
+{ 'eqn' : 'HOBr -> OBr- + H+',
+ 'largek' : 2.00e-9,
+ 'left' : ['hobr'],
+ 'right' : ['obr_', 'hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1] 
+                 }
+},
+{ 'eqn' : 'Br2 + H2O -> HOBr + Br- + H +',
+ 'largek' : 6.10e-9,
+ 'left' : ['br2'],
+ 'right' : ['hobr', 'br_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1,1] 
+                 }
+},
+{ 'eqn' : 'Br2 + Br- -> Br3-',
+ 'largek' : 1.61e1,
+ 'left' : ['br2','br_'],
+ 'right' : ['br3_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : '2HOBr -> Br2O + H2O',
+ 'largek' : 6.31e0,
+ 'left' : ['hobr'],
+ 'right' : ['br2o'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'HOCl -> OCl- + H+',
+ 'largek' : 3.388e-8,
+ 'left' : ['hocl'],
+ 'right' : ['ocl_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1] 
+                 }
+},
+{ 'eqn' : 'Cl2 + H2O -> HOCl + Cl- + h+',
+ 'largek' : 1.04e-3,
+ 'left' : ['cl2'],
+ 'right' : ['hocl','cl_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1,1] 
+                 }
+},
+{ 'eqn' : 'BrCl + H2O -> HOCl + Cl- + H+',
+ 'largek' : 1.30e-4,
+ 'left' : ['brcl'],
+ 'right' : ['hocl','cl_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1,1] 
+                 }
+},
+{ 'eqn' : 'BrCl + H2O -> HOCl + Br- + H+',
+ 'largek' : 8.7e-10,
+ 'left' : ['brcl'],
+ 'right' : ['hocl','br_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1,1] 
+                 }
+},
+{ 'eqn' : '2BrCl -> Cl2 + Br2',
+ 'largek' : 7.6e-3,
+ 'left' : ['brcl'],
+ 'right' : ['cl2','br2'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1,1] 
+                 }
+},
+{ 'eqn' : 'Cl2 + Cl- -> Cl3-',
+ 'largek' : 1.8e-1,
+ 'left' : ['cl2','cl_'],
+ 'right' : ['cl3_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'Cl2 + Br- -> BrCl2-',
+ 'largek' : 4.2e6,
+ 'left' : ['cl2','br_'],
+ 'right' : ['brcl2_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'BrCl + Cl- -> BrCl2-',
+ 'largek' : 3.8e0 ,
+ 'left' : ['brcl','cl_'],
+ 'right' : ['brcl2_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'Br2 + Cl- -> Br2Cl-',
+ 'largek' : 1.3e0,
+ 'left' : ['br2','cl_'],
+ 'right' : ['br2cl_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'BrCl + Br- -> Br2Cl-',
+ 'largek' : 1.8e4,
+ 'left' : ['brcl','br_'],
+ 'right' : ['br2cl_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'HOBr + HOCl -> BrOCl + H2O',
+ 'largek' : 3.47e-1,
+ 'left' : ['hobr','hocl'],
+ 'right' : ['brocl'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : '2HOCl ->  Cl2O + H2O',
+ 'largek' : 1.51e-2,
+ 'left' : ['hocl'],
+ 'right' : ['cl2o'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1] 
+                 }
+})

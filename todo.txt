@@ -1,0 +1,28 @@
+to do:
+주석 달기,
+
+x_value와 solver 좀 해결하기
+
+
+디버깅좀 어떻게 해라.
+
+solver algorithm에 문제가 많음...
+
+
+
+[min, max] 만들기 알고리즘 만들기.
+
+
+
+
+xmaxima, xminima
+k가 더 크다.
+
+즉 x는 양수일 것이다.
+
+
+좀 절차를 만들어 봅시다.
+
+pseudo code?
+# 일단 left의 정보들을 가져오는 것부터 ?
+

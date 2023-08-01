@@ -1,0 +1,110 @@
+1 variants 메타데이터
+
+pseudo code
+
+
+x를 집어넣어서 어떤 값이 나오느냐?
+
+# 가상변수 창출
+copy.deepcopy(valuespace)
+
+
+
+
+
+
+
+# 식 만들기 함수
+def kfuction (contspace, x):
+left =1
+right = 1
+for pleft in constspace.left.keys():
+ value= valuespace[pleft]
+left = left*(value-가중치*x)
+
+for pright in constspace.right.keys():
+ value= valuespace[pright]
+right = right*(value+가중치*x)
+
+
+q= left/right
+return q
+
+# 해 찾기 로직
+def solving (constspace, valuespace)
+
+maxinter = 100
+tol = 1.00e-9
+#범위 구하기 로직
+
+if kfuction(constpace, 0) < constspace['largek']
+# [0,x,xmaxima]
+  xminina = 0
+leftvalue =[]
+for keyleft in constspace.left
+leftvalue.append(valuespace[keyleft]) 
+xmaxima = min(leftvalue)
+
+elseif kfuction(constspace, 0) = constspace['largek']
+ x = 0
+
+else
+# [xminima,x,0] 
+xmaxima = 0
+for keyright in constspace.right
+rightvalue.append(valuespace[keyright]) 
+xminima = - min(rightvalue)
+
+
+#이분법로직
+
+for counter in range(1,maxinter): 
+fminima = kfunciton(constspace, xminima)
+fmaxima =kfunciton(constspace, xmaxima)
+xm=(xmaima+xminima)/2
+value_xm = kfunciton(constspace, xm)
+err = (xmaxima-xminima).2
+if abs(value_xm)< tol and abs(err)< tol:
+    x = xm
+else:
+   if value_xm*fminima >0:
+       xminima = xm
+   else:
+       xmaxima = xm
+
+
+return x
+
+
+# x = 해값
+
+
+
+left, right, 가중치 정보 ->
+
+
+
+xlist = 해값 메타정보(스트링)
+
+# xlistleft 메타정보 리스트 구하기
+
+xlistleft = constaspace['left']
+xlistleft_meta = (constspace['metadata'])['left']
+
+# xlistright 메타정보 리스트
+xlistright = constspace['right']
+xlistright_meta = conspace['metadata']['right']
+
+
+for indexleft in range (len(xlistleft)) :
+  name =  xlistleft[indexleft]
+ 가중치 = xlistleft_meta[indexleft]
+  variantspace_zero[name] = - 가중치 * x넣기
+
+for indexright in range (len(xlistright) : 
+ name = xlistright[indexright]
+ 가중치 = xlistright_meta[indexright]
+ variantspace_zero[name] = + 가중치 * x 넣기
+
+
+vairant_for_change = variantspace_zero 
