@@ -26,3 +26,4 @@ k가 더 크다.
 pseudo code?
 # 일단 left의 정보들을 가져오는 것부터 ?
 
+[min, max] 가시화

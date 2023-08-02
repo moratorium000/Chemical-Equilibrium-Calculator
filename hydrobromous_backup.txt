@@ -1,0 +1,11 @@
+,
+{
+"chemical" : "hydrobromous acid",
+"Ions" : ["hp", "br_"],
+"concentration" : 14.0000e-5,
+"stoichiometry" :
+	{ "hp" : 1,
+	"br_" : 1
+	}
+}
+]
