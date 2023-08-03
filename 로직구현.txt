@@ -46,3 +46,6 @@ for species in all_list:
 
 
 #minmax  만들기
+
+# 목표 ph로 control이 가능한 모듈
+아니 무슨 

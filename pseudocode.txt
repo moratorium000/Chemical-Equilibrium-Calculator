@@ -108,3 +108,20 @@ for indexright in range (len(xlistright) :
 
 
 vairant_for_change = variantspace_zero 
+
+
+# ph checker 구현
+def ph_checker(data, goal, tol):
+	if abs(goal+numpy.log10(data["hp"])) < tol or abs(goal+numpy.log10(data)) == 0:
+	 flag = True
+	else:
+	 flag = False
+
+return flag
+
+# data processor
+def data_processor(goal_ph):
+
+
+
+return data_pH

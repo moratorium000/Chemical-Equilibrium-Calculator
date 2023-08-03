@@ -104,7 +104,7 @@ def equilibriumcalc():
         else:
             valuespace_true[chemicals_input_] = inputvaluedata[chemicals_input_]
 
-    for timer in range(1000):
+    for timer in range(10):
         for i in constspace_true:
             variant_x = solving(i, valuespace_true)
             leftkeys_ = i['left']
