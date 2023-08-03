@@ -3,18 +3,24 @@ import numpy as np
 import os
 
 def main():
+    if "ratio_data.csv" in os.listdir():
+        os.remove("ratio_data.csv")
     data_sample = open("ratio_data.csv", 'w')
     data_sample.write("\n")
     names_open = open("names.txt", "r")
     data_sample.write(names_open.read() + "\n")
     names_open.close()
-    br_data_front_open = open("bromide_front.txt", "r")
-    br_data_front = acid_data_front_open.read()
-    br_data_back_open = open("bromide_back.txt", "r")
-    br_data_back = acid_data_back_open.read()
+    br_data_front_open = open("sodium_bromide_front.txt", "r")
+    br_data_front = br_data_front_open.read()
+    br_data_back_open = open("sodium_bromide_back.txt", "r")
+    br_data_back = br_data_back_open.read()
     br_data_front_open.close()
     br_data_back_open.close()
-    lins = np.linspace(2.0e-5, 1.4e-4,10)
+#    lins = np.linspace(3.3e-6, 3.3e-4,100)
+    lins_scale = np.linspace(-1, 1, 100)
+    lins = [3.3e-5 * 10 ** x for x in lins_scale]
+    for scale in lins_scale:
+        print(scale)
     reader = open("br_chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()

@@ -1,0 +1,26 @@
+[
+{
+"chemical" : "sodium hypochlorite solution",
+"Ions" : ["nap","ocl_"],
+"concentration" : 3.465e-5,
+"stoichiometry" :
+	{ "nap" : 1,
+	"ocl_" : 1
+	}
+},
+{
+"chemical" : "sodium hypochlorite solution acidity",
+"Ions" : ["oh_"],
+"concentration" : 1.0e-3,
+"stoichiometry" :
+	{ "oh_" : 1
+	}
+},
+{
+"chemical" : "acid",
+"Ions" : ["hp"],
+"concentration" : 2.7033333e-5,
+"stoichiometry" :
+	{ "hp" : 1
+	}
+}
