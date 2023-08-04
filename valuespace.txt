@@ -161,4 +161,13 @@
                  'left': [1, 1],
                  'right': [1, 1] 
                  }
+},
+{ 'eqn' : 'H+ + OH- -> H2O',
+ 'largek' : 1.0e-14,
+ 'left' : ['hp', 'oh_'],
+ 'right' : [],
+ 'metadata' : {
+                 'left': [1, 1],
+                 'right': [] 
+                 }
 })

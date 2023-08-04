@@ -15,28 +15,48 @@ class valuespace_c:
 def kfunction(constspacepar, xinput, valuespacepar, index1_):
     leftvar = 1
     rightvar = 1
+    if constspacepar['left'] == [] or constspacepar['right'] == []:
+        if constspacepar['left'] == []:
+            leftvar = 1
+            for pright in constspacepar['left']:
+                valueright = valuespacepar[pright]
+                indexright = constspacepar['right'].index(pright)
+                rightvar = rightvar * (valueright + xinput * constspacepar['metadata']['right'][indexright])
+        else:
+            rightvar = 1
+            for pleft in constspacepar['left']:
+                valueleft = valuespacepar[pleft]
+                indexleft = constspacepar['left'].index(pleft)
+                leftvar = leftvar * (valueleft - xinput * constspacepar['metadata']['left'][indexleft])
 
-    for pleft in constspacepar['left']:
-        valueleft = valuespacepar[pleft]
-        indexleft = constspacepar['left'].index(pleft)
-        leftvar = leftvar * (valueleft - xinput * constspacepar['metadata']['left'][indexleft])
-    for pright in constspacepar['right']:
-        valueright = valuespacepar[pright]
-        indexright = constspacepar['right'].index(pright)
-        rightvar = rightvar * (valueright + xinput * constspacepar['metadata']['right'][indexright])
 
+
+    else:
+        for pleft in constspacepar['left']:
+            valueleft = valuespacepar[pleft]
+            indexleft = constspacepar['left'].index(pleft)
+            leftvar = leftvar * (valueleft - xinput * constspacepar['metadata']['left'][indexleft])
+        for pright in constspacepar['right']:
+            valueright = valuespacepar[pright]
+            indexright = constspacepar['right'].index(pright)
+            rightvar = rightvar * (valueright + xinput * constspacepar['metadata']['right'][indexright])
 
     try:
-        q = 1 - rightvar/(leftvar*constspacepar['largek'])
+        q = constspacepar['largek'] - (rightvar / leftvar)
         return q
     except ZeroDivisionError:
         if index1_ == 1:
             return None
         else:
+            hp = open("bug_report.txt",'w')
+            bug_report = hp.write(str(valuespacepar))
+            hp.close()
             print('WHAT THE')
             return 'wt'
+
+
 def solving(constspacepar, valuespacepar):
-    maxiter = 100
+    maxiter = 30
     tol = 1.00e-15
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
@@ -45,28 +65,52 @@ def solving(constspacepar, valuespacepar):
         if abs(kfunction(constspacepar, 0, valuespacepar, 1)) < tol:
             return 0
         else:
-            if kfunction(constspacepar, 0, valuespacepar, 1) > 0:
-                xminima = 0
-                leftvalue = []
-                for keyleft in constspacepar['left']:
-                    leftindex = constspacepar['left'].index(keyleft)
-                    leftvalue.append(valuespacepar[keyleft] / constspacepar['metadata']['left'][leftindex])
+            if constspacepar['left'] == [] or constspacepar['right'] == []:
+                if constspacepar['left'] == []:
+                    xmaxima = 0
+                    rightvalue = []
+                    for keyright in constspacepar['right']:
+                        rightindex = constspacepar['right'].index(keyright)
+                        rightvalue.append(
+                            valuespacepar[keyright] / constspacepar['metadata']['right'][rightindex])
+                    xminima = - min(rightvalue)
 
-                xmaxima = min(leftvalue)
+
+                else:
+                    xminima = 0
+                    leftvalue = []
+                    for keyleft in constspacepar['left']:
+                        leftindex = constspacepar['left'].index(keyleft)
+                        leftvalue.append(valuespacepar[keyleft] / constspacepar['metadata']['left'][leftindex])
+
+                    xmaxima = min(leftvalue)
 
             else:
-                xmaxima = 0
-                rightvalue = []
-                for keyright in constspacepar['right']:
-                    rightindex = constspacepar['right'].index(keyright)
-                    rightvalue.append(valuespacepar[keyright] / constspacepar['metadata']['right'][rightindex])
-                xminima = - min(rightvalue)
+                if kfunction(constspacepar, 0, valuespacepar, 1) > 0:
+                    xminima = 0
+                    leftvalue = []
+                    for keyleft in constspacepar['left']:
+                        leftindex = constspacepar['left'].index(keyleft)
+                        leftvalue.append(valuespacepar[keyleft] / constspacepar['metadata']['left'][leftindex])
+
+                    xmaxima = min(leftvalue)
+
+                else:
+                    xmaxima = 0
+                    rightvalue = []
+                    for keyright in constspacepar['right']:
+                        rightindex = constspacepar['right'].index(keyright)
+                        rightvalue.append(valuespacepar[keyright] / constspacepar['metadata']['right'][rightindex])
+                    xminima = - min(rightvalue)
+
+
 
 
     for counter in range(maxiter):
         fminima = kfunction(constspacepar, xminima, valuespacepar, 0)
         xm = (xminima+xmaxima)/2
         value_xm = kfunction(constspacepar, xm, valuespacepar, 0)
+
         err = abs(xmaxima-xminima)/2
         if abs(value_xm) < tol and abs(err) < tol:
             x = xm
@@ -74,6 +118,7 @@ def solving(constspacepar, valuespacepar):
         else:
             if value_xm * fminima > 0:
                 xminima = xm
+
             else:
                 if value_xm == 0:
                     return xm
@@ -106,6 +151,11 @@ def equilibriumcalc():
 
     for timer in range(10):
         for i in constspace_true:
+            if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
+                if valuespace_true['hp']/valuespace_true['oh_']:
+                    valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
+                else:
+                    valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
             variant_x = solving(i, valuespace_true)
             leftkeys_ = i['left']
             rightkeys_ = i['right']
@@ -116,21 +166,22 @@ def equilibriumcalc():
             for pright in rightkeys_:
                 indexright = i['right'].index(pright)
                 valuespace_true[pright] = valuespace_true[pright] + variant_x * i['metadata']['right'][indexright]
-
-            valuespace_true["oh_"] = (1.00e-14) / valuespace_true["hp"]
-
-
+    if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4 or valuespace_true['hp'] / valuespace_true['oh_'] < 1e-4:
+        if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4:
+            valuespace_true['oh_'] = 1.0e-14 / valuespace_true['hp']
+        else:
+            valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
     return valuespace_true
 
 
 
 
 
-# finaldata = equilibriumcalc()
-# print('\n\nfinal data : ', finaldata)
-# fp = open('valuespace_output.txt', 'w')
-# for s in finaldata:
-#    print(s,' : ', finaldata[s])
-#    fp.write(str(s) + ' : ' + str(finaldata[s]) + '\n')
-
-# fp.close()
+#finaldata = equilibriumcalc()
+#print('\n\nfinal data : ', finaldata)
+#fp = open('valuespace_output_1.txt', 'w')
+#for s in finaldata:
+#   print(s,' : ', finaldata[s])
+#  fp.write(str(s) + ' : ' + str(finaldata[s]) + '\n')
+#
+#fp.close()
