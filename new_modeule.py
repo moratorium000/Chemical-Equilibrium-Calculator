@@ -32,7 +32,7 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
     alltext = reader.read()
     reader.close()
 
-    pH_range = [x for x in np.linspace(lower_limit, upper_limit, 500)]
+    pH_range = [x for x in np.linspace(lower_limit, upper_limit, 1000)]
     k = 1
     for br_conc in lins:
         brfullstr = br_data_front + str(br_conc) + br_data_back
@@ -78,4 +78,4 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
 
 
 #2.0e-4,5.0e-4
-ratio_module(11,1.0e-6,4.0e-5, 1.0e-2)
+ratio_module(7,1.0e-6,1.0e-4, 1.0e-2)
