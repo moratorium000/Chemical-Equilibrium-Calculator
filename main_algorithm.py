@@ -57,7 +57,7 @@ def kfunction(constspacepar, xinput, valuespacepar, index1_):
 
 def solving(constspacepar, valuespacepar):
     maxiter = 30
-    tol = 1.00e-15
+    tol = 1.00e-20
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
         return 0
@@ -149,13 +149,13 @@ def equilibriumcalc():
         else:
             valuespace_true[chemicals_input_] = inputvaluedata[chemicals_input_]
 
-    for timer in range(10):
+    for timer in range(100):
         for i in constspace_true:
-            if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
-                if valuespace_true['hp']/valuespace_true['oh_']:
-                    valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
-                else:
-                    valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
+            #if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
+             #   if valuespace_true['hp']/valuespace_true['oh_']:
+              #      valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
+               # else:
+                #    valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
             variant_x = solving(i, valuespace_true)
             leftkeys_ = i['left']
             rightkeys_ = i['right']

@@ -16,14 +16,13 @@ def main():
     acid_data_back = acid_data_back_open.read()
     acid_data_front_open.close()
     acid_data_front_open.close()
-    lins = np.linspace(2.67e-5, 2.77e-5, 10)
+    lins = np.linspace(1.0e-6, 1.00e-4, 1000)
     reader = open("chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
     k = 1
     for acid_conc in lins:
         fullstr = acid_data_front + str(acid_conc) + acid_data_back
-        print(acid_conc)
         writer = open("chemical_input_data.txt", "w")
         writer.write(alltext+fullstr)
         writer.close()

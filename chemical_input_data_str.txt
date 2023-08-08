@@ -1,17 +1,8 @@
 [{
-"chemical" : "sodium hypochlorite solution",
-"Ions" : ["nap","ocl_"],
-"concentration" : 3.465e-5,
+"chemical" : "bromine",
+"Ions" : ["br_"],
+"concentration" : 1.25e-6,
 "stoichiometry" :
-	{ "nap" : 1,
-	"ocl_" : 1
-	}
-},
-{
-"chemical" : "sodium hypochlorite solution acidity",
-"Ions" : ["oh_"],
-"concentration" : 1.0e-3,
-"stoichiometry" :
-	{ "oh_" : 1
+	{	"br_" : 1
 	}
 }

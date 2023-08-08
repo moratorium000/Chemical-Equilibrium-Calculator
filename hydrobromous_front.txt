@@ -1,5 +1,5 @@
 ,
 {
-"chemical" : "hydrobromous acid",
-"Ions" : ["hp", "br_"],
+"chemical" : "base",
+"Ions" : ["oh_"],
 "concentration" :
