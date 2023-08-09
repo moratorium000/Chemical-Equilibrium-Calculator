@@ -1,6 +1,6 @@
 ,
 "stoichiometry" :
-	{ "oh_" : 1
+	{ "hp" : 1
 	}
 }
 ]

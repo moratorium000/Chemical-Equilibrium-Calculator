@@ -1,5 +1,5 @@
 ,
 {
-"chemical" : "base",
-"Ions" : ["oh_"],
+"chemical" : "acid",
+"Ions" : ["hp"],
 "concentration" :
