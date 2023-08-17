@@ -1,4 +1,5 @@
 import array
+from phreeqpy import iphreeqc
 
 import chempy.equilibria as cpeq
 import chempy.chemistry as cpch
@@ -25,15 +26,15 @@ Hydroxide = Species.from_formula('OH-',['(aq)'])
 Water = Species.from_formula('H2O',['(l)'])
 
 subs_new = {'HOBr': HOBr, 'OBr-': OBr_,'Br-': Br_,'Br2': Br2,'Br3-': Br3_,'Br2O':Br2O, 'H+': Proton,'OH-':Hydroxide,'H2O':Water}
-# substances={r1:' HOBr OBr- H+',r2:'Br2 H2O HOBr Br- H+',r3:'Br2 Br- Br3-',r4:'HOBr Br2O H2O',r5:'H+ OH- H2O'}
+# substances = {r1:' HOBr OBr- H+',r2:'Br2 H2O HOBr Br- H+',r3:'Br2 Br- Br3-',r4:'HOBr Br2O H2O',r5:'H+ OH- H2O'}
 
 equil_1 = cpeq.EqSystem(rxns=[r1, r2, r3, r4, r5],
                         substances = subs_new, name='Br_eq_system',
                         checks=('balance', 'substance_keys', 'duplicate', 'duplicate_names'))
 
 print('\n'.join(map(str, equil_1.rxns)))
-init_ = defaultdict(float, {'HOBr': 1.25e-6, 'OBr-': 1.0e-20,'Br-': 1.0e-20,'Br2': 1.0e-20,'Br3-': 1.0e-20,'Br2O':1.0e-20, 'H+': 1.0e-7,'OH-': 1.0e-7,'H2O':55.6})
-x, sol, sane = equil_1.roots(init_concs=init_,varied_data = 'none',varied='none')
+init_ = defaultdict(float, {'HOBr': 1.25e-6, 'OBr-': 0.00,'Br-': 0.00,'Br2': 0.00,'Br3-': 0.00,'Br2O':0.00, 'H+': 1.0e-7,'OH-': 1.0e-7,'H2O': 55.6})
+x, sol, sane = equil_1.root(init_concs=init_)
 
 print(sane)
 
