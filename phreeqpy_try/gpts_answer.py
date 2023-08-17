@@ -7,6 +7,9 @@ time step. We shift by one cell per step.
 from __future__ import print_function
 
 import sys
+import pandas as pd
+
+
 
 # Simple Python 3 compatibility adjustment.
 if sys.version_info[0] == 2:
@@ -177,12 +180,14 @@ def run(ncells, shifts, specie_names):
         conc = advect_step(phreeqc, inflow, conc, cells)
         for name in specie_names:
             outflow[name].append(conc[name][-1])
+    print(outflow)
     return outflow
 
-
+"""
 def write_outflow(file_name, outflow):
-    """Write the outflow values to a file.
     """
+"""Write the outflow values to a file."""
+"""
     fobj = open(file_name, 'w')
     header = outflow.keys()
     for head in header:
@@ -192,6 +197,17 @@ def write_outflow(file_name, outflow):
         for head in header:
             fobj.write('%20.17f' % outflow[head][lineno])
         fobj.write('\n')
+"""
+
+
+def write_outflow(file_name, outflow):
+
+    header = outflow.keys()
+
+    dataframe_1 = pd.DataFrame(outflow)
+    dataframe_1.to_csv(file_name, sep=',', na_rep='NaN')
+
+
 
 
 def main(ncells, shifts):
@@ -213,7 +229,7 @@ def main(ncells, shifts):
     outflow, run_time = measure_time(run, ncells, shifts, specie_names)
     if not os.path.exists('data'):
         os.mkdir('data')
-    write_outflow('data/out.txt', outflow)
+    write_outflow('data/out.csv', outflow)
     print('run time:', run_time)
     print("Finished simulation\n")
 
