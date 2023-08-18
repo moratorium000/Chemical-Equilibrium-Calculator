@@ -7,7 +7,7 @@ def freak_generator():
     return freak_instance
 
 
-def database_transmitter(freak_instance, database_name="database.dat"):
+def database_transmitter(freak_instance, database_name="phreeqc.dat"):
     while True:
         try:
             freak_instance.load_database(database_name)
