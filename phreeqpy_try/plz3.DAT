@@ -1,0 +1,65 @@
+SOLUTION_MASTER_SPECIES 
+H	H+	-1.0	H	1.008
+H(0)	H2	0.0	H
+H(1)	H+	-1.0	0.0
+E	e-	0.0	0.0	0.0
+O	H2O	0.0	O	16.00
+O(0)	O2	0.0	O
+O(-2)	H2O	0.0	0.0
+Na(+1)	Na+	0	Na	22.9898
+
+SOLUTION_SPECIES
+H+ = H+
+     log_k	0.000
+     -gamma          9.0000    0.0000
+
+e- = e-
+     log_k	0.000
+
+H2O = H2O
+     log_k	0.000
+
+Na+ = Na+
+     log_k	0.000
+     -gamma          4.0000    0.0750
+
+H2O = OH- + H+
+     log_k         -14.000
+     delta_h         13.362  kcal
+     -analytic    -283.971    -0.05069842    13323.0    102.24447    -1119669.0
+     -gamma          3.5000    0.0000
+
+2 H2O = O2 + 4 H+ + 4 e-
+     log_k         -86.08
+     delta_h         134.79 kcal
+
+2 H+ + 2 e- = H2
+     log_k	-3.15
+     delta_h         -1.759 kcal
+
+PHASES
+H2O(g)
+	H2O = H2O
+	-log_k  1.506; delta_h -44.03 kJ
+	-T_c  647.3
+	-P_c  217.60
+	-Omega 0.344
+	-analytic   -16.5066 -2.0013E-3  2710.7  3.7646  0 2.24E-6
+O2(g)
+	O2 = O2
+	-log_k   -2.8983
+	-analytic -7.5001 7.8981e-3 0.0 0.0 2.0027e5
+	-T_c  154.6; -P_c   49.80; -Omega 0.021
+H2(g)
+	H2 = H2
+	-log_k	   -3.1050
+	-delta_h -4.184  kJ
+	-analytic   -9.3114    4.6473e-3   -49.335    1.4341    1.2815e5
+	-T_c  33.2; -P_c   12.80; -Omega -0.225
+
+
+SURFACE_MASTER_SPECIES
+
+
+SURFACE_SPECIES
+

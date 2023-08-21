@@ -1,0 +1,3 @@
+##### PART 6 SURFACE_MASTER_SPECIES
+	Hfo_s	Hfo_sOH
+	Hfo_w	Hfo_wOH

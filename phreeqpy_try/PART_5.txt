@@ -1,0 +1,82 @@
+##### PART 5 EXCHANGE_SPECIES
+
+EXCHANGE_SPECIES
+	X- = X-
+	-log_k	0.0
+
+	Na+ + X- = NaX
+	-log_k	0.0
+	-gamma	4.08 0.082
+
+	K+ + X- = KX
+	-log_k	0.7
+	-gamma	3.5	0.015
+	-delta_h  -4.3	# Jardine & Sparks, 1984
+
+	Li+ + X- = LiX
+	-log_k	-0.08
+	-gamma	6.0	0
+	-delta_h  1.4	# Merriam & Thomas, 1956
+
+# !!!!!
+#	H+ + X- = HX
+#	-log_k	1.0
+#	-gamma	9.0	0
+
+#	AmmH+ + X- = AmmHX
+	NH4+ + X- = NH4X
+	-log_k	0.6
+	-gamma	2.5	0
+	-delta_h  -2.4	# Laudelout et al., 1968
+
+	Ca+2 + 2X- = CaX2
+	-log_k	0.8
+	-gamma	5.0	0.165
+	-delta_h  7.2    # Van Bladel & Gheyl, 1980
+
+	Mg+2 + 2X- = MgX2
+	-log_k	0.6
+	-gamma	5.5	0.2
+	-delta_h  7.4	# Laudelout et al., 1968
+
+	Sr+2 + 2X- = SrX2
+	-log_k	0.91
+	-gamma	5.26	0.121
+	-delta_h  5.5	# Laudelout et al., 1968
+
+	Ba+2 + 2X- = BaX2
+	-log_k	0.91
+	-gamma	4.0  0.153
+	-delta_h  4.5	# Laudelout et al., 1968
+
+	Mn+2 + 2X- = MnX2
+	-log_k	0.52
+	-gamma	6.0	0
+
+	Fe+2 + 2X- = FeX2
+	-log_k	0.44
+	-gamma	6.0	0
+
+	Cu+2 + 2X- = CuX2
+	-log_k	0.6
+	-gamma	6.0	0
+
+	Zn+2 + 2X- = ZnX2
+	-log_k	0.8
+	-gamma	5.0	0
+
+	Cd+2 + 2X- = CdX2
+	-log_k	0.8
+	-gamma 0.0  0
+
+	Pb+2 + 2X- = PbX2
+	-log_k	1.05
+	-gamma 0.0  0
+
+	Al+3 + 3X- = AlX3
+	-log_k	0.41
+	-gamma	9.0	0
+
+	AlOH+2 + 2X- = AlOHX2
+	-log_k	0.89
+	-gamma	0.0	0
