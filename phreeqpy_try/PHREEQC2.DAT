@@ -46,10 +46,11 @@ P		PO4-3	2.0	P		30.9738
 F		F-	0	F		18.9984
 Li		Li+	0	Li		6.939
 Br		Br-	0	Br		79.904
-Br 		OBr-	0	OBr		95.903
-Br(+1) 		OBr-	1.0	OBr
-Br(+1)		Br2O	0	Br2O		175.81
-Br(0)		Br2	0	Br		159.81
+Br(-1)		Br-	0	Br		79.904
+Br(-0.3)	Br3-	0	Br		79.904
+Br 		OBr-	1	Br		79.904
+Br(+1)		Br2O	0	Br2O		79.904
+Br(0)		Br2	0	Br		79.904
 Zn		Zn+2	0	Zn		65.37
 Cd		Cd+2	0	Cd		112.4
 Pb		Pb+2	0	Pb		207.19
@@ -74,6 +75,17 @@ e- = e-
 H2O = H2O
 # H2O + 0.01e- = H2O-0.01; -log_k -9 # aids convergence
 	-dw	2.299e-9  -254  1e-10  1e-10
+Br2 = Br2
+	-dw	2.299e-9  -254  1e-10  1e-10
+Br2O = Br2O
+	-dw	2.299e-9  -254  1e-10  1e-10
+HOBr = HOBr
+	-dw	2.299e-9  -254  1e-10  1e-10
+OBr- = OBr-
+	-gamma	3.0	0
+	-dw	1.9e-9  184  1.85  3.85
+	-Vm  6.32  6.78  0  -3.06  0.346  0  0.93  0  -0.012  1
+	-viscosity  8.37e-2  -0.458  1.54e-2  0.340  1.79e-2  5.02e-2  0.7381
 Ca+2 = Ca+2
 	-gamma	5.0	0.1650
 	-dw	0.793e-9  97  3.4  24.6

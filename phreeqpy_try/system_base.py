@@ -1,6 +1,7 @@
 import phreeqpy.iphreeqc.phreeqc_dll as phreeqc_mod
 
 
+
 def freak_generator():
     freak_instance = phreeqc_mod.IPhreeqc()
     freak_instance.create_iphreeqc()
@@ -23,7 +24,9 @@ def database_transmitter(freak_instance, database_name="phreeqc.dat"):
 def input_data_transmitter(data, freak_instance):
     if isinstance(freak_instance, phreeqc_mod.IPhreeqc):
         print(True)
-        freak_instance.create_iphreeqc()
+        str_data_reader = open("input_freak.txt", 'r')
+        input_str = str_data_reader.read()
+        freak_instance.run_string(cmd_string=input_str)
 
     else:
         TypeError(""" is not Class \' Iphreeqc \' """)
