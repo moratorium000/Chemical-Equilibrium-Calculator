@@ -1,0 +1,6 @@
+,
+"stoichiometry" :
+	{ "nap" : 1,
+	"br_" : 1
+	}
+}

@@ -1,0 +1,48 @@
+{'br2' : 1.0e-20, 'hobr' : 1.0e-20, 'br2o' : 1.0e-20, 'br_' : 1.00e-20, 'br3_' : 1.0e-20, 'obr_' : 1.0e-20, 'hp' : 1.00e-7, 'oh_' : 1.00e-7, 'nap' : 1.00e-14}
+{'br2' : 0, 'hobr' : 0, 'br2o' : 0, 'br_' : 0, 'br3_' : 0, 'obr_' : 0, 'hp' : 0, 'oh_' : 0, 'nap' : 0}
+(
+{ 'eqn' : 'HOBr -> OBr- + H+',
+ 'largek' : 2.00e-9,
+ 'left' : ['hobr'],
+ 'right' : ['obr_', 'hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1] 
+                 }
+},
+{ 'eqn' : 'Br2 + H2O -> HOBr + Br- + H +',
+ 'largek' : 6.10e-9,
+ 'left' : ['br2'],
+ 'right' : ['hobr', 'br_','hp'],
+ 'metadata' : {
+                 'left': [1],
+                 'right': [1,1,1] 
+                 }
+},
+{ 'eqn' : 'Br2 + Br- -> Br3-',
+ 'largek' : 1.61e1,
+ 'left' : ['br2','br_'],
+ 'right' : ['br3_'],
+ 'metadata' : {
+                 'left': [1,1],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : '2HOBr -> Br2O + H2O',
+ 'largek' : 6.31e0,
+ 'left' : ['hobr'],
+ 'right' : ['br2o'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1] 
+                 }
+},
+{ 'eqn' : 'H+ + OH- -> H2O',
+ 'largek' : 1.0e+14,
+ 'left' : ['hp', 'oh_'],
+ 'right' : [],
+ 'metadata' : {
+                 'left': [1, 1],
+                 'right': [] 
+                 }
+})

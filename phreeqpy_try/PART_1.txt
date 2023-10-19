@@ -1,0 +1,68 @@
+##### PART 1 SOLUTION_MASTER_SPECIES
+
+SOLUTION_MASTER_SPECIES
+#
+#element		species	alk	gfw_formula	element_gfw
+#
+H		H+	-1.0	H		1.008
+H(0)		H2	0	H
+H(1)		H+	-1.0	0
+E		e-	0	0.0		0
+O		H2O	0	O		16.0
+O(0)		O2	0	O
+O(-2)		H2O	0	0
+Ca		Ca+2	0	Ca		40.08
+Mg		Mg+2	0	Mg		24.312
+Na		Na+	0	Na		22.9898
+K		K+	0	K		39.102
+Fe		Fe+2	0	Fe		55.847
+Fe(+2)		Fe+2	0	Fe
+Fe(+3)		Fe+3	-2.0	Fe
+Mn		Mn+2	0	Mn		54.938
+Mn(+2)		Mn+2	0	Mn
+Mn(+3)		Mn+3	0	Mn
+Al		Al+3	0	Al		26.9815
+Ba		Ba+2	0	Ba		137.34
+Sr		Sr+2	0	Sr		87.62
+Si		H4SiO4	0	SiO2		28.0843
+Cl		Cl-	0	Cl		35.453
+C		CO3-2	2.0	HCO3		12.0111
+C(+4)		CO3-2	2.0	HCO3
+C(-4)		CH4	0	CH4
+Alkalinity		CO3-2	1.0	Ca0.5(CO3)0.5	50.05
+S		SO4-2	0	SO4		32.064
+S(6)		SO4-2	0	SO4
+S(-2)		HS-	1.0	S
+N		NO3-	0	N		14.0067
+N(+5)		NO3-	0	N
+N(+3)		NO2-	0	N
+N(0)		N2	0	N
+N(-3)	        	NH4+	0	N		14.0067
+#Amm		AmmH+	0	AmmH		17.031
+B		H3BO3	0	B		10.81
+P		PO4-3	2.0	P		30.9738
+F		F-	0	F		18.9984
+Li		Li+	0	Li		6.939
+Br		Br-	0	Br		79.904
+Zn		Zn+2	0	Zn		65.37
+Cd		Cd+2	0	Cd		112.4
+Pb		Pb+2	0	Pb		207.19
+Cu		Cu+2	0	Cu		63.546
+Cu(+2)		Cu+2	0	Cu
+Cu(+1)		Cu+1	0	Cu
+# redox-uncoupled gases
+Hdg		Hdg	0	Hdg		2.016 # H2 gas
+Oxg		Oxg	0	Oxg		32 # O2 gas
+Mtg		Mtg	0	Mtg		16.032 # CH4 gas
+Sg		H2Sg	1.0	H2Sg		34.08
+Ntg		Ntg	0	Ntg		28.0134 # N2 gas
+
+
+# Bromine_Oxidants
+Br		Br-	0	Br		79.904
+Br(+1)		HOBr	0	HOBr		96.911
+Br(+1)		OBr-	1.0	OBr		95.903
+Br(-1)		Br3-	0	Br3		239.71
+Br(+1)		Br2O	0	Br2O		175.81
+
+

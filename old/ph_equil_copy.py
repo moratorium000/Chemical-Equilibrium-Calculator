@@ -1,8 +1,10 @@
-import main_algorithm
+import equil_test
 import numpy as np
 import os
 
 def main():
+    if "ph_data.csv" in os.listdir():
+        os.remove("ph_data.csv")
     data_sample = open("ph_data.csv", 'w')
     data_sample.write("\n")
     names_open = open("names.txt", "r")
@@ -14,7 +16,7 @@ def main():
     acid_data_back = acid_data_back_open.read()
     acid_data_front_open.close()
     acid_data_front_open.close()
-    lins = np.linspace(2.0e-5, 1.4e-4,10)
+    lins = np.linspace(1.0e-5, 1.00e-4, 10)
     reader = open("chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
@@ -24,7 +26,8 @@ def main():
         writer = open("chemical_input_data.txt", "w")
         writer.write(alltext+fullstr)
         writer.close()
-        data = main_algorithm.equilibriumcalc()
+        data = equil_test.equilibriumcalc()
+        print("pH   : ", -np.log10(data["hp"]))
         line = ""
         for values in data.values():
             if line == "":

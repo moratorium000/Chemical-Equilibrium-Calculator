@@ -1,0 +1,8 @@
+[{
+"chemical" : "bromine",
+"Ions" : ["hobr"],
+"concentration" : 1.25e-6,
+"stoichiometry" :
+	{	"hobr" : 1
+	}
+}

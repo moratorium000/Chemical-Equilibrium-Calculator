@@ -1,0 +1,378 @@
+SOLUTION_MASTER_SPECIES 
+H            H+            -1.0       1.008               1.008
+H(0)            H2            0.0       H               
+H(1)            H+            -1.       0.0               
+E            e-            0.0       0.0               0.0
+O            H2O            0.0       O               16.00
+O(0)            O2            0.0       O               
+O(-2)            H2O            0.0       0.0               
+Br(-1)            Br-            0       Br               79.904
+Br(+1)            HOBr            0       HOBr               
+Br(+1)            OBr-            1.0       OBr               
+Br(-1)            Br3-            0       Br3               
+Br(+1)            Br2O            0       Br2O               
+Na            Na+            0       Na               22.9898
+
+SOLUTION_SPECIES
+H+ = H+
+     log_k	0.000
+     -gamma          9.0000    0.0000
+
+e- = e-
+     log_k	0.000
+
+H2O = H2O
+     log_k	0.000
+
+Na+ = Na+
+     log_k	0.000
+     -gamma          4.0000    0.0750
+
+Br- = Br-
+     log_k           0.000
+
+Br2 = Br2
+     log_k           0.000
+
+Br3- = Br3-
+     log_k           0.000
+
+Br2O = Br2O
+     log_k           0.000
+
+HOBr = HOBr
+     log_k           0.000
+
+OBr- = OBr-
+     log_k           0.000
+
+HOBr = OBr- + H+
+     log_k           -8.70
+
+Br2 + H2O = HOBr + Br- + H+
+     log_k           -8.21
+
+Br2 + Br- = Br3-
+     log_k           1.21
+
+2 HOBr = Br2O + H2O
+     log_k           0.80
+
+H2O = OH- + H+
+     log_k         -14.000
+     delta_h         13.362  kcal
+     -analytic    -283.971    -0.05069842    13323.0    102.24447    -1119669.0
+     -gamma          3.5000    0.0000
+
+2 H2O = O2 + 4 H+ + 4 e-
+     log_k         -86.08
+     delta_h         134.79 kcal
+
+2 H+ + 2 e- = H2
+     log_k	-3.15
+     delta_h         -1.759 kcal
+
+PHASES
+Calcite
+     CaCO3 = CO3-2 + Ca+2
+     log_k           -8.480
+     delta_h         -2.297 kcal
+     -analytic       -171.9065     -0.077993      2839.319      71.595
+
+Dolomite
+        CaMg(CO3)2 = Ca+2 + Mg+2 + 2 CO3-2
+        log_k           -17.090
+        delta_h -9.436 kcal
+
+Siderite
+        FeCO3 = Fe+2 + CO3-2
+        log_k           -10.890
+        delta_h -2.480 kcal
+
+Gypsum
+     CaSO4:2H2O = Ca+2 + SO4-2 + 2 H2O
+     log_k           -4.580
+     delta_h         -0.109 kcal
+     -analytic       68.2401       0.0          -3221.51      -25.0627
+
+Anhydrite
+     CaSO4 = Ca+2 + SO4-2
+     log_k           -4.360
+     delta_h         -1.710 kcal
+     -analytic       197.52        0.0          -8669.8       -69.835
+
+Hydroxyapatite
+        Ca5(PO4)3OH + 4 H3O+ = 5H2O + 3 HPO4-2 + 5 Ca+2
+        log_k           -3.421
+        delta_h -36.155 kcal
+
+Fluorite
+        CaF2 = Ca+2 + 2 F-
+        log_k           -10.600
+        delta_h 4.690 kcal
+        -analytic       66.348        0.0          -4298.2       -25.271
+
+SiO2(a)
+        SiO2 + 2 H2O = H4SiO4
+        log_k           -2.710
+        delta_h 3.340 kcal
+        -analytic       -0.26          0.0          -731.0
+
+Chalcedony
+        SiO2 + 2 H2O = H4SiO4
+        log_k           -3.550
+        delta_h 4.720 kcal
+        -analytic       -0.09          0.0          -1032.0
+
+Quartz
+        SiO2 + 2 H2O = H4SiO4
+        log_k           -3.980
+        delta_h 5.990 kcal
+        -analytic       0.41          0.0          -1309.0
+
+Gibbsite
+        Al(OH)3 + 3 H3O+ = Al+3 + 6 H2O
+        log_k           8.110
+        delta_h -22.800 kcal
+
+Al(OH)3(a)
+        Al(OH)3 + 3 H3O+ = Al+3 + 6 H2O
+        log_k           10.800
+        delta_h -26.500 kcal
+
+Kaolinite
+        Al2Si2O5(OH)4 + 6 H3O+ = 7H2O + 2 H4SiO4 + 2 Al+3
+        log_k           7.435
+        delta_h -35.300 kcal
+
+Albite
+        NaAlSi3O8 + 8 H2O = Na+ + Al(OH)4- + 3 H4SiO4
+        log_k           -18.002
+        delta_h 25.896 kcal
+
+Anorthite
+        CaAl2Si2O8 + 8 H2O = Ca+2 + 2 Al(OH)4- + 2 H4SiO4
+        log_k           -19.714
+        delta_h 11.580 kcal
+
+K-feldspar
+        KAlSi3O8 + 8 H2O = K+ + Al(OH)4- + 3 H4SiO4
+        log_k           -20.573
+        delta_h 30.820  kcal
+
+K-mica
+        KAl3Si3O10(OH)2 + 10 H3O+ = K+ + 3 Al+3 + 3 H4SiO4 + 10H2O
+        log_k           12.703
+        delta_h -59.376 kcal
+
+Chlorite(14A)
+        Mg5Al2Si3O10(OH)8 + 16 H3O+ = 5Mg+2 + 2Al+3 + 3H4SiO4 + 22H2O
+        log_k           68.38
+        delta_h -151.494 kcal
+
+Ca-Montmorillonite
+        Ca0.165Al2.33Si3.67O10(OH)2 + 14 H2O = 0.165Ca+2 + 2.33 Al(OH)4- + 3.67 H4SiO4 + 2 H3O+
+        log_k           -45.027
+        delta_h 58.373  kcal
+
+Talc
+        Mg3Si4O10(OH)2 + 4 H2O + 6 H3O+ = 3 Mg+2 + 4 H4SiO4 + 6H2O
+        log_k           21.399
+        delta_h -46.352 kcal
+
+Illite
+        K0.6Mg0.25Al2.3Si3.5O10(OH)2 + 12.4H2O = 0.6K+ + 0.25Mg+2 + 2.3Al(OH)4- + 3.5H4SiO4 + 1.2H3O+
+        log_k           -40.267
+        delta_h 54.684 kcal
+
+Chrysotile
+        Mg3Si2O5(OH)4 + 6 H3O+ = 7H2O + 2 H4SiO4 + 3 Mg+2
+        log_k           32.200
+        delta_h -46.800 kcal
+        -analytic       13.248        0.0          10217.1       -6.1894
+
+Sepiolite
+        Mg2Si3O7.5OH:3H2O + 4 H3O+ + 0.5H2O = 2 Mg+2 + 3 H4SiO4 + 4H2O
+        log_k           15.760
+        delta_h -10.700 kcal
+
+Sepiolite(d)
+        Mg2Si3O7.5OH:3H2O + 4 H3O+ + 0.5H2O = 2 Mg+2 + 3 H4SiO4 + 4H2O
+        log_k           18.660
+
+Hematite
+        Fe2O3 + 6 H3O+ = 2 Fe+3 + 9 H2O
+        log_k           -4.008
+        delta_h -30.845 kcal
+
+Goethite
+        FeOOH + 3 H3O+ = Fe+3 + 5 H2O
+        log_k           -1.000
+        delta_h         -14.48 kcal
+
+Fe(OH)3(a)
+        Fe(OH)3 + 3 H3O+ = Fe+3 + 6 H2O
+        log_k           4.891
+
+Pyrite
+     FeS2 + 2H3O+ + 2e- = Fe+2 + 2HS- + 2H2O
+     log_k           -18.479
+     delta_h         11.300 kcal
+
+FeS(ppt)
+        FeS + H3O+ = Fe+2 + HS- + H2O
+        log_k           -3.915
+
+Mackinawite
+        FeS + H3O+ = Fe+2 + HS- + H2O
+        log_k           -4.648
+
+Sulfur
+        S + 2 H3O+ + 2e- = H2S + 2H2O
+        log_k           4.882
+        delta_h -9.5 kcal
+
+Vivianite
+        Fe3(PO4)2:8H2O = 3 Fe+2 + 2 PO4-3 + 8 H2O
+        log_k           -36.000
+
+Halite
+        NaCl = Na+ + Cl- 
+        log_k           1.582
+        delta_h 0.918 kcal
+
+CO2(g)
+     CO2(g) = CO2
+     log_k           -1.468
+     delta_h         -4.776 kcal
+     -analytic       108.3865      0.01985076   -6919.53      -40.45154      669365.0
+
+O2(g)
+     O2 = O2
+#	log_k	   -2.960
+#	delta_h -1.844  kcal
+	 # log K from llnl.dat  Dec 8, 2010
+	log_k	   -2.8983
+	-analytic -7.5001e+000 7.8981e-003 0.0000e+000 0.0000e+000 2.0027e+005     
+
+H2(g)
+     H2 = H2
+     log_k           -3.150
+     delta_h         -1.759 kcal
+
+H2O(g)
+     H2O = H2O
+     log_k           1.51
+     delta_h         -44.03 kJ
+
+N2(g)
+     N2 = N2
+     log_k           -3.260
+     delta_h         -1.358 kcal
+
+H2S(g)
+     H2S = H2S
+     log_k           -0.997
+     delta_h         -4.570 kcal
+
+CH4(g)
+     CH4 = CH4
+     log_k           -2.860
+     delta_h         -3.373 kcal
+
+NH3(g)
+     NH3 = NH3
+     log_k           1.770
+     delta_h         -8.170 kcal
+
+Melanterite
+        FeSO4:7H2O = 7 H2O + Fe+2 + SO4-2
+        log_k           -2.209
+        delta_h 4.910           kcal
+        -analytic       1.447        -0.004153      0.0           0.0          -214949.0
+
+Alunite
+        KAl3(SO4)2(OH)6 + 6 H3O+ = K+ + 3 Al+3 + 2 SO4-2 + 12H2O
+        log_k           -1.400
+        delta_h -50.250 kcal
+
+Jarosite-K
+        KFe3(SO4)2(OH)6 + 6 H3O+ = 3 Fe+3 + 12 H2O + K+ + 2 SO4-2
+        log_k           -9.210
+        delta_h -31.280 kcal
+
+EXCHANGE_MASTER_SPECIES
+        X       X-
+EXCHANGE_SPECIES
+        X- = X-
+        log_k           0.0
+
+        Na+ + X- = NaX
+        log_k   0.0
+        -gamma  4.0     0.075
+
+        K+ + X- = KX
+        log_k   0.7
+        -gamma  3.5     0.015
+        delta_h  -4.3   # Jardine & Sparks, 1984
+
+        NH4+ + X- = NH4X
+        log_k   0.6
+        -gamma  2.5     0.0
+        delta_h  -2.4   # Laudelout et al., 1968
+
+        Ca+2 + 2X- = CaX2
+        log_k   0.8
+        -gamma  5.0     0.165
+        delta_h  7.2    # Van Bladel & Gheyl, 1980
+
+        Mg+2 + 2X- = MgX2
+        log_k   0.6
+        -gamma  5.5     0.2
+        delta_h  7.4    # Laudelout et al., 1968
+
+        Fe+2 + 2X- = FeX2
+        log_k   0.44
+        -gamma  6.0     0.0
+
+        Al+3 + 3X- = AlX3
+        log_k   0.41
+        -gamma  9.0     0.0
+
+        AlOH+2 + 2X- = AlOHX2
+        log_k   0.89
+        -gamma  0.0     0.0
+
+SURFACE_MASTER_SPECIES
+        Hfo_s  Hfo_sOH
+        Hfo_w  Hfo_wOH
+
+
+SURFACE_SPECIES
+#   All surface data from
+#   Dzombak and Morel, 1990
+#
+#
+#   Acid-base data from table 5.7
+#
+#   strong binding site--Hfo_s,
+
+        Hfo_sOH = Hfo_sOH
+        log_k  0.0
+
+        Hfo_sOH  + H3O+ = Hfo_sOH2+ + H2O
+        log_k  7.29    # = pKa1,int
+
+        Hfo_sOH + H2O = Hfo_sO- + H3O+
+        log_k  -8.93   # = -pKa2,int
+
+#   weak binding site--Hfo_w
+
+        Hfo_wOH = Hfo_wOH
+        log_k  0.0
+
+        Hfo_wOH  + H3O+ = Hfo_wOH2+ + H2O
+        log_k  7.29    # = pKa1,int
+
+        Hfo_wOH + H2O = Hfo_wO- + H3O+
+        log_k  -8.93   # = -pKa2,int

@@ -1,12 +1,4 @@
-[{
-"chemical" : "sodium bromide",
-"Ions" : ["nap","br_"],
-"concentration" : 3.3e-5,
-"stoichiometry" :
-	{ "nap" : 1,
-	"br_" : 1
-	}
-},
+[
 {
 "chemical" : "sodium hypochlorite solution",
 "Ions" : ["nap","ocl_"],
