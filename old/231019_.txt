@@ -1,0 +1,69 @@
+구현 목표 acid or base 첨가시에 system ph 변동에 대해서.
+
+smooth한 구동을 .
+
+투입 농도, 원래 농도, 농도 변화, 변화된 농도의 비,
+
+
+1) 변화량을 직접적으로 계산할 수 있는가?
+acid를 넣었다고 해보자 cx만큼, original coh
+
+
+
+coh + cx - x = 변화된 총 수소 이온 농도
+
+cooh - x = 변화된 총 수산화 이온 농도
+
+(coh +cx -x )*( cooh -x) = 10**-14 
+그럼.... 들어간 것이 acid인가 base인가? 
+
+acidity > 10^-7 일 경우 acid로 취급하고, h data를 넣고, 10^-7 이상일 경우 h  대신에 oh_를 넣으며 base로 취급한다. 
+두번째, 그런다고 해서 딱히,., h+와 oh_가 동일하게 ph 7이거나 그 인근이라고 해보자. 
+이 경우 h+와 oh_를 둘 다 넣어야 함.
+그렇다면... 1:1fh x가 빠져야 함.
+
+걍 구현하기
+
+1) data 전처리
+Cohp =
+Cxhp =
+Cooh = 
+Cxoh =
+
+
+
+2) x 구하기.
+
+
+b = Cohp + Cxhp + Cooh + Cxoh
+c = (Cohp + Cxhp) *( Cooh + Cxoh) - 1e-14
+
+root1 = (b +sqrt(b**2-4*c))/2
+root2 = (b -sqrt(b**2-4*c))/2
+
+if root1- (Cohp + Cxhp) > 0 or root1- (Cooh + Cxoh)>0
+	true_root = root2
+else: 
+	true_root =root1
+
+3) 구한 x 처리해서 HP OH_ 적용
+
+Cfh = Cohp + Cxhp - true_root
+Cfoh = Cooh + Cxoh - true_root
+
+
+
+
+4) 데이터 정합성 판별하기
+tol = 1e-15
+if abs (Cfh*Cfoh - 1e-14) > tol
+	if Cfh > Cfoh:
+		Cfoh = 1e-14/CfH
+	else:
+		Cfh = 1e-14/Cfoh
+
+
+5) 처리 데이터 대입
+
+
+자료구조가 너무 개판이라서 손을 쓸 수가 없음

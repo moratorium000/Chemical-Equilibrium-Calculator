@@ -13,6 +13,10 @@ class valuespace_c:
             self.valuespace[key] = self.valuespace[key] + variants_input
         return
 def kfunction(constspacepar, xinput, valuespacepar, index1_):
+#   kfunction is a function to calculate Q, reaction coefficient, in manner of difference with K, equilibrium constant
+#   zerodivision error of the fuction results in return value None, the
+#
+#
     leftvar = 1
     rightvar = 1
     if constspacepar['left'] == [] or constspacepar['right'] == []:
@@ -54,8 +58,28 @@ def kfunction(constspacepar, xinput, valuespacepar, index1_):
             print('WHAT THE')
             return 'wt'
 
+def ph_calculator_(cohp,cxhp,cooh,cxoh):
+#
+#
+#
+#
+    beta = cohp + cxhp + cooh + cxoh
+    gamma = (cohp + cxhp) * (cooh + cxoh)- 1e-14
+    root1 = (beta + (beta**2-4*gamma)**0.5)/2
+    root2 = (beta - (beta**2-4*gamma)**0.5)/2
+    if root1 - (cohp + cxhp) > 0 or root1 - (cooh + cxoh) > 0:
+        true_root = root2
+    else:
+        true_root = root2
+    cfhp = cohp + cxhp - true_root
+    cfoh = cooh + cxoh - true_root
+    return [cfhp, cfoh]
 
 def solving(constspacepar, valuespacepar):
+# solver mechanism is consisted with three parts: pretreatment of the data, calling kfunction to calculate the value and iteration of bisection mechanism
+
+
+
     maxiter = 30
     tol = 1.00e-20
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
@@ -141,21 +165,21 @@ def equilibriumcalc():
     chemical_input = calculator()
     inputvaluedata = chemical_input[0]
     inputphdata = chemical_input[1]
-    valuespace_true["hp"] = inputphdata["hp"]
-    valuespace_true["oh_"] = inputphdata["oh_"]
     for chemicals_input_ in inputvaluedata.keys():
         if chemicals_input_ == "hp" or chemicals_input_ == "oh_":
             pass
         else:
             valuespace_true[chemicals_input_] = inputvaluedata[chemicals_input_]
-
+    hp_new, oh_new = ph_calculator_(valuespace_true["hp"], inputphdata["hp"], valuespace_true["oh_"], inputphdata["oh_"])
+    valuespace_true["hp"] = hp_new
+    valuespace_true["oh_"] = oh_new
     for timer in range(100):
         for i in constspace_true:
-            #if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
-             #   if valuespace_true['hp']/valuespace_true['oh_']:
-              #      valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
-               # else:
-                #    valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
+#           if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
+#                if valuespace_true['hp']/valuespace_true['oh_']:
+#                    valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
+#                else:
+#                    valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
             variant_x = solving(i, valuespace_true)
             leftkeys_ = i['left']
             rightkeys_ = i['right']
@@ -166,22 +190,24 @@ def equilibriumcalc():
             for pright in rightkeys_:
                 indexright = i['right'].index(pright)
                 valuespace_true[pright] = valuespace_true[pright] + variant_x * i['metadata']['right'][indexright]
-    if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4 or valuespace_true['hp'] / valuespace_true['oh_'] < 1e-4:
-        if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4:
-            valuespace_true['oh_'] = 1.0e-14 / valuespace_true['hp']
-        else:
-            valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_']
+            valuespace_true["oh_"] = 1.0e-14 / valuespace_true["hp"]
     return valuespace_true
 
+"""    if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4 or valuespace_true['hp'] / valuespace_true['oh_'] < 1e-4:
+        if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4:
+            valuespace_true['oh_'] = 1.0e-14 / valuespace_true['hp']
+        else :
+            valuespace_true['hp'] = 1.0e-14 / valuespace_true['oh_'] """
 
 
 
 
-#finaldata = equilibriumcalc()
-#print('\n\nfinal data : ', finaldata)
-#fp = open('valuespace_output_1.txt', 'w')
-#for s in finaldata:
-#   print(s,' : ', finaldata[s])
-#  fp.write(str(s) + ' : ' + str(finaldata[s]) + '\n')
-#
-#fp.close()
+
+if __name__ == "__main__":
+    finaldata = equilibriumcalc()
+    print('\n\nfinal data : ', finaldata)
+    fp = open('valuespace_output_1.txt', 'w')
+    for s in finaldata:
+        print(s,' : ', finaldata[s])
+        fp.write(str(s) + ' : ' + str(finaldata[s]) + '\n')
+    fp.close()

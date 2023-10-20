@@ -25,6 +25,9 @@ def calculator():
                 else:
                     datadict["hp"] = 1.0e-14 / datadict["oh_"]
 
+    datadict["hp"] = infoscript[1]["concentration"]
+    datadict["oh_"] = infoscript[2]["concentration"]
+
     hpfinal = datadict["hp"]
     ohfinal = datadict["oh_"]
 
