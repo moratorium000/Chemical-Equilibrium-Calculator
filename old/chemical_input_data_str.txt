@@ -1,8 +1,15 @@
-[{
+{
 "chemical" : "bromine",
-"Ions" : ["hobr"],
+"Ions" : ["obr_"],
 "concentration" : 1.25e-6,
 "stoichiometry" :
-	{	"hobr" : 1
+	{	"obr_" : 1
+	}
+},{
+"chemical" : "bromide",
+"Ions" : ["br_"],
+"concentration" : 1.25e-6,
+"stoichiometry" :
+	{	"br_" : 1
 	}
 }

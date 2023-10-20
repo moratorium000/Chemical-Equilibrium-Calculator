@@ -67,10 +67,13 @@ def ph_calculator_(cohp,cxhp,cooh,cxoh):
     gamma = (cohp + cxhp) * (cooh + cxoh)- 1e-14
     root1 = (beta + (beta**2-4*gamma)**0.5)/2
     root2 = (beta - (beta**2-4*gamma)**0.5)/2
+#    print("root1 :" , root1)
+#    print("root2 :" , root2)
     if root1 - (cohp + cxhp) > 0 or root1 - (cooh + cxoh) > 0:
         true_root = root2
     else:
-        true_root = root2
+        true_root = root1
+#    print("true_root : ", true_root)
     cfhp = cohp + cxhp - true_root
     cfoh = cooh + cxoh - true_root
     return [cfhp, cfoh]
@@ -80,13 +83,14 @@ def solving(constspacepar, valuespacepar):
 
 
 
-    maxiter = 30
-    tol = 1.00e-20
+    maxiter = 10000
+    tol = 1.00e-3
+#    print("valuespace_true[hp]",valuespacepar["hp"])
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
         return 0
     else:
-        if abs(kfunction(constspacepar, 0, valuespacepar, 1)) < tol:
+        if abs(kfunction(constspacepar, 0, valuespacepar, 1))/constspacepar["largek"] < tol:
             return 0
         else:
             if constspacepar['left'] == [] or constspacepar['right'] == []:
@@ -110,7 +114,7 @@ def solving(constspacepar, valuespacepar):
                     xmaxima = min(leftvalue)
 
             else:
-                if kfunction(constspacepar, 0, valuespacepar, 1) > 0:
+                if kfunction(constspacepar, 0, valuespacepar, 1)/constspacepar["largek"] > 0:
                     xminima = 0
                     leftvalue = []
                     for keyleft in constspacepar['left']:
@@ -173,8 +177,11 @@ def equilibriumcalc():
     hp_new, oh_new = ph_calculator_(valuespace_true["hp"], inputphdata["hp"], valuespace_true["oh_"], inputphdata["oh_"])
     valuespace_true["hp"] = hp_new
     valuespace_true["oh_"] = oh_new
+#    print("hp_new :",hp_new)
+#    print("oh_new :",oh_new)
     for timer in range(100):
         for i in constspace_true:
+#            print("valuespace_true hp :", valuespace_true["hp"])
 #           if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
 #                if valuespace_true['hp']/valuespace_true['oh_']:
 #                    valuespace_true['oh_'] = 1.0e-14/valuespace_true['hp']
@@ -191,6 +198,8 @@ def equilibriumcalc():
                 indexright = i['right'].index(pright)
                 valuespace_true[pright] = valuespace_true[pright] + variant_x * i['metadata']['right'][indexright]
             valuespace_true["oh_"] = 1.0e-14 / valuespace_true["hp"]
+#            print("valuespace_true[hp]",valuespace_true["hp"])
+
     return valuespace_true
 
 """    if valuespace_true['hp'] / valuespace_true['oh_'] > 1e4 or valuespace_true['hp'] / valuespace_true['oh_'] < 1e-4:

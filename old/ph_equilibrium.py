@@ -16,16 +16,26 @@ def main():
     acid_data_back = acid_data_back_open.read()
     acid_data_front_open.close()
     acid_data_front_open.close()
-    lins_log = np.linspace(-10, -4, 1000)
+
+    base_data_front_open = open("base_front.txt", "r")
+    base_data_front = base_data_front_open.read()
+    base_data_back_open = open("base_back.txt", "r")
+    base_data_back = base_data_back_open.read()
+    base_data_front_open.close()
+    base_data_front_open.close()
+
+    lins_log = np.linspace(-5, -2, 10000)
     lins = (10** x for x in lins_log)
     reader = open("chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
     k = 1
     for acid_conc in lins:
-        fullstr = acid_data_front + str(acid_conc) + acid_data_back
+        base_conc = 1.0e-14/acid_conc
+        acid_fullstr = acid_data_front + str(acid_conc) + acid_data_back
+        base_fullstr = base_data_front + str(base_conc) + base_data_back
         writer = open("chemical_input_data.txt", "w")
-        writer.write(alltext+fullstr)
+        writer.write("[" + alltext + acid_fullstr + base_fullstr + "]")
         writer.close()
         data = main_algorithm.equilibriumcalc()
         print("pH   : ", -np.log10(data["hp"]))

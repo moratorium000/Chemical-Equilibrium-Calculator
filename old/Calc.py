@@ -12,21 +12,14 @@ def calculator():
             else:
                 ionlist.append(ion)
     for ion in ionlist:
-        if ion != "hp" and ion != "oh_":
-            datadict[ion] = 0
-        else:
-            datadict[ion] = 1.0e-7
+        datadict[ion] = 1.0e-14
     for cheminfo in infoscript:
         for ion in cheminfo["Ions"]:
             datadict[ion] = datadict[ion] + cheminfo["concentration"] * cheminfo["stoichiometry"][ion]
-            if ion == "hp" or ion == "oh_":
-                if ion == "hp":
-                    datadict["oh_"] = 1.0e-14 / datadict["hp"]
-                else:
-                    datadict["hp"] = 1.0e-14 / datadict["oh_"]
 
-    datadict["hp"] = infoscript[1]["concentration"]
-    datadict["oh_"] = infoscript[2]["concentration"]
+
+    datadict["hp"] = infoscript[-2]["concentration"]
+    datadict["oh_"] = infoscript[-1]["concentration"]
 
     hpfinal = datadict["hp"]
     ohfinal = datadict["oh_"]
