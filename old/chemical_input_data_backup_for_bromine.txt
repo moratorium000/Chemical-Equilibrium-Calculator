@@ -1,0 +1,34 @@
+[{
+"chemical" : "bromine",
+"Ions" : ["obr_"],
+"concentration" : 1.25e-6,
+"stoichiometry" :
+	{	"obr_" : 1
+	}
+},{
+"chemical" : "bromide",
+"Ions" : ["br_"],
+"concentration" : 1.25e-6,
+"stoichiometry" :
+	{	"br_" : 1
+	}
+}
+,
+{
+"chemical" : "acid",
+"Ions" : ["hp"],
+"concentration" :0.00012909549618894334,
+"stoichiometry" :
+	{ "hp" : 1
+	}
+}
+,
+{
+"chemical" : "base",
+"Ions" : ["oh_"],
+"concentration" :7.746203620739847e-11,
+"stoichiometry" :
+	{ "oh_" : 1
+	}
+}
+]

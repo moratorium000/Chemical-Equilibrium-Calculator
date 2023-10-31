@@ -83,8 +83,8 @@ def solving(constspacepar, valuespacepar):
 
 
 
-    maxiter = 10000
-    tol = 1.00e-3
+    maxiter = 100000
+    tol = 1.00e-5
 #    print("valuespace_true[hp]",valuespacepar["hp"])
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
@@ -191,14 +191,15 @@ def equilibriumcalc():
             leftkeys_ = i['left']
             rightkeys_ = i['right']
             for pleft in leftkeys_:
-                indexleft = i['left'].index(pleft)
 
+                indexleft = i['left'].index(pleft)
                 valuespace_true[pleft] = valuespace_true[pleft] - variant_x * i['metadata']['left'][indexleft]
             for pright in rightkeys_:
                 indexright = i['right'].index(pright)
                 valuespace_true[pright] = valuespace_true[pright] + variant_x * i['metadata']['right'][indexright]
             valuespace_true["oh_"] = 1.0e-14 / valuespace_true["hp"]
 #            print("valuespace_true[hp]",valuespace_true["hp"])
+    print(valuespace_true)
 
     return valuespace_true
 
