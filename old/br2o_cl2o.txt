@@ -1,0 +1,20 @@
+,
+{ 'eqn' : '2HOBr -> Br2O + H2O',
+ 'largek' : 6.31e0,
+ 'left' : ['hobr'],
+ 'right' : ['br2o'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1]
+                 }
+},
+{ 'eqn' : '2HOCl ->  Cl2O + H2O',
+ 'largek' : 1.51e-2,
+ 'left' : ['hocl'],
+ 'right' : ['cl2o'],
+ 'metadata' : {
+                 'left': [2],
+                 'right': [1]
+                 }
+}
+

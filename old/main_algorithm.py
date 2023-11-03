@@ -25,13 +25,13 @@ def kfunction(constspacepar, xinput, valuespacepar, index1_):
             for pright in constspacepar['left']:
                 valueright = valuespacepar[pright]
                 indexright = constspacepar['right'].index(pright)
-                rightvar = rightvar * (valueright + xinput * constspacepar['metadata']['right'][indexright])
+                rightvar = rightvar * ((valueright + xinput * constspacepar['metadata']['right'][indexright])**constspacepar['metadata']['right'][indexright])
         else:
             rightvar = 1
             for pleft in constspacepar['left']:
                 valueleft = valuespacepar[pleft]
                 indexleft = constspacepar['left'].index(pleft)
-                leftvar = leftvar * (valueleft - xinput * constspacepar['metadata']['left'][indexleft])
+                leftvar = leftvar * ((valueleft - xinput * constspacepar['metadata']['left'][indexleft])** constspacepar['metadata']['left'][indexleft])
 
 
 
@@ -39,14 +39,14 @@ def kfunction(constspacepar, xinput, valuespacepar, index1_):
         for pleft in constspacepar['left']:
             valueleft = valuespacepar[pleft]
             indexleft = constspacepar['left'].index(pleft)
-            leftvar = leftvar * (valueleft - xinput * constspacepar['metadata']['left'][indexleft])
+            leftvar = leftvar * ((valueleft - xinput * constspacepar['metadata']['left'][indexleft])** constspacepar['metadata']['left'][indexleft])
         for pright in constspacepar['right']:
             valueright = valuespacepar[pright]
             indexright = constspacepar['right'].index(pright)
-            rightvar = rightvar * (valueright + xinput * constspacepar['metadata']['right'][indexright])
+            rightvar = rightvar * ((valueright + xinput * constspacepar['metadata']['right'][indexright])** constspacepar['metadata']['right'][indexright])
 
     try:
-        q = constspacepar['largek'] - (rightvar / leftvar)
+        q = (constspacepar['largek'] - (rightvar / leftvar))/constspacepar['largek']
         return q
     except ZeroDivisionError:
         if index1_ == 1:
@@ -83,8 +83,8 @@ def solving(constspacepar, valuespacepar):
 
 
 
-    maxiter = 100000
-    tol = 1.00e-5
+    maxiter = 200
+    tol = 1.00e-7
 #    print("valuespace_true[hp]",valuespacepar["hp"])
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
@@ -179,7 +179,7 @@ def equilibriumcalc():
     valuespace_true["oh_"] = oh_new
 #    print("hp_new :",hp_new)
 #    print("oh_new :",oh_new)
-    for timer in range(100):
+    for timer in range(500):
         for i in constspace_true:
 #            print("valuespace_true hp :", valuespace_true["hp"])
 #           if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:

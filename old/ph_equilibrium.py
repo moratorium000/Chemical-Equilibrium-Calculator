@@ -24,7 +24,7 @@ def main():
     base_data_front_open.close()
     base_data_front_open.close()
 
-    lins_log = np.linspace(-4, -3.8, 1000)
+    lins_log = np.linspace(-4.005, -3.6, 500)
     lins = (10** x for x in lins_log)
     reader = open("chemical_input_data_str.txt", "r")
     alltext = reader.read()

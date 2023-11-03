@@ -24,29 +24,42 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
     br_data_back = br_data_back_open.read()
     br_data_front_open.close()
     br_data_back_open.close()
-    lins_scale = np.linspace(-1, 1, 100)
+    lins_scale = np.linspace(-1, 1, 10)
     lins = [3.3e-5 * 10 ** x for x in lins_scale]
 #    for scale in lins_scale:
 #        print(scale)
     reader = open("total_chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
+    logspace = np.linspace(lower_limit, upper_limit, 1000)
 
-    pH_range = [x for x in np.linspace(lower_limit, upper_limit, 1000)]
+    pH_range = [10**x for x in logspace]
     k = 1
     for br_conc in lins:
         brfullstr = br_data_front + str(br_conc) + br_data_back
         for acid_conc in pH_range:
+            base_conc = 1.0e-14 / acid_conc
+
             acid_data_front_open = open("hydrobromous_front.txt", "r")
             acid_data_front = acid_data_front_open.read()
             acid_data_back_open = open("hydrobromous_back.txt", "r")
             acid_data_back = acid_data_back_open.read()
             acid_data_front_open.close()
             acid_data_back_open.close()
+
+            base_data_front_open = open("base_front.txt", "r")
+            base_data_front = base_data_front_open.read()
+            base_data_back_open = open("base_back.txt", "r")
+            base_data_back = base_data_back_open.read()
+            base_data_front_open.close()
+            base_data_front_open.close()
+
+
             acstr = acid_data_front + str(acid_conc) + acid_data_back
+            base_fullstr = base_data_front + str(base_conc) + base_data_back
 
             writer = open("chemical_input_data.txt", "w")
-            writer.write(alltext + brfullstr + acstr)
+            writer.write("["+alltext + brfullstr + acstr+ base_fullstr + "]")
             writer.close()
             data = {}
             data_raw = main_algorithm.equilibriumcalc()
@@ -78,4 +91,4 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
 
 
 #2.0e-4,5.0e-4
-ratio_module(7,1.0e-6,1.0e-4, 1.0e-2)
+ratio_module(7,-5.0, -4.0, 1.0e-2)
