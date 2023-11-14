@@ -24,14 +24,14 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
     br_data_back = br_data_back_open.read()
     br_data_front_open.close()
     br_data_back_open.close()
-    lins_scale = np.linspace(-1, 1, 10)
+    lins_scale = np.linspace(-1, 1, 21)
     lins = [3.3e-5 * 10 ** x for x in lins_scale]
 #    for scale in lins_scale:
 #        print(scale)
     reader = open("total_chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
-    logspace = np.linspace(lower_limit, upper_limit, 1000)
+    logspace = np.linspace(lower_limit, upper_limit, 50000)
 
     pH_range = [10**x for x in logspace]
     k = 1

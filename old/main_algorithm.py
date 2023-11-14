@@ -140,7 +140,7 @@ def solving(constspacepar, valuespacepar):
         value_xm = kfunction(constspacepar, xm, valuespacepar, 0)
 
         err = abs(xmaxima-xminima)/2
-        if abs(value_xm) < tol and abs(err) < tol:
+        if abs(err) < tol:
             x = xm
             return x
         else:
@@ -179,7 +179,7 @@ def equilibriumcalc():
     valuespace_true["oh_"] = oh_new
 #    print("hp_new :",hp_new)
 #    print("oh_new :",oh_new)
-    for timer in range(500):
+    for timer in range(1000):
         for i in constspace_true:
 #            print("valuespace_true hp :", valuespace_true["hp"])
 #           if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:

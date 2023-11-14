@@ -1,7 +1,7 @@
 {
 "chemical" : "sodium bromide",
 "Ions" : ["nap","br_"],
-"concentration" : 3.47e-5,
+"concentration" : 3.465e-5,
 "stoichiometry" :
 	{ "nap" : 1,
 	"br_" : 1
