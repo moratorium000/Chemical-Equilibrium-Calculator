@@ -1,4 +1,4 @@
-{'cl2' : 1e-20, 'hocl' : 1e-20, 'cl2o' : 1e-20, 'cl_' : 1e-20, 'cl3_' : 1e-20, 'ocl_' : 1e-20, 'br2' : 1e-20, 'hobr' : 1e-20, 'br2o' : 1e-20, 'br_' : 1e-20, 'br3_' : 1e-20, 'obr_' : 1e-20,'brcl' : 1e-20, 'br2cl_' : 1e-20, 'brcl2_' : 1e-20, 'brocl' : 1e-20,'hp' : 1.00e-9, 'oh_' : 1.0e-5, 'nap' : 1.07e-3}
+{'cl2' : 1e-20, 'hocl' : 1e-20, 'cl2o' : 1e-20, 'cl_' : 1e-20, 'cl3_' : 1e-20, 'ocl_' : 1e-20, 'br2' : 1e-20, 'hobr' : 1e-20, 'br2o' : 1e-20, 'br_' : 1e-20, 'br3_' : 1e-20, 'obr_' : 1e-20,'brcl' : 1e-20, 'br2cl_' : 1e-20, 'brcl2_' : 1e-20, 'brocl' : 1e-20,'hp' : 1.00e-10, 'oh_' : 1.0e-4, 'nap' : 1.07e-3}
 {'cl2' : 0, 'hocl' : 0, 'cl2o' : 0, 'cl_' : 0, 'cl3_' : 0, 'ocl_' : 0, 'br2' : 0, 'hobr' : 0, 'br2o' : 0, 'br_' : 0, 'br3_' : 0, 'obr_' : 0, 'brcl' : 0, 'br2cl_' : 0, 'brcl2_' : 0, 'brocl' : 0, 'hp' : 0, 'oh_' : 0, 'nap' : 0}
 (
 { 'eqn' : 'HOCl -> OCl- + H+',

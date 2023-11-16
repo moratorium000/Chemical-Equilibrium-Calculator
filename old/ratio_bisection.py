@@ -29,7 +29,7 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
     br_data_back_open.close()
 #    lins_scale = np.linspace(-1, 1, 21)
 #    lins = [3.3e-5 * 10 ** x for x in lins_scale]
-    lins = [3.3e-6 * x for x in range(0, 21, 1)]
+    lins = [3.3e-6 * x for x in range(1, 21, 1)]
 
 #    for scale in lins_scale:
 #        print(scale)
@@ -46,8 +46,8 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
         line = ""
         for counter in range(iteration_for_ph):
             xm = (ph_minmax[0] + ph_minmax[1]) / 2
-            base_conc = 10**xm
-            acid_conc = 1.0e-14 / base_conc
+            acid_conc = 10**xm
+            base_conc = 1.0e-14 / acid_conc
             print("xm", acid_conc)
 
             acid_data_front_open = open("hydrobromous_front.txt", "r")
@@ -91,8 +91,10 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
                         break
 
                     else:
-                        ph_minmax = [ph_minmax[0], xm]
+                        ph_minmax = [xm,ph_minmax[1]]
+                        print("down ", -np.log10(data_raw['hp']))
                         print(ph_minmax)
+                        os.remove('chemical_input_data.txt')
                 else:
                     if abs(np.log10(data_raw['hp']) + ph_goal_input) < tol_input:
                         data = data_raw.values()
@@ -107,8 +109,10 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
                         ph_minmax = [lower_limit, upper_limit]
                         break
                     else:
-                        ph_minmax = [xm, ph_minmax[1]]
+                        ph_minmax = [ph_minmax[0], xm]
+                        print("up ", -np.log10(data_raw['hp']))
                         print(ph_minmax)
+                        os.remove('chemical_input_data.txt')
             if counter == iteration_for_ph - 1:
                 data = data_raw.values()
                 for values in data:
@@ -128,4 +132,4 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
 
 
 #2.0e-4,5.0e-4
-ratio_module(10,-12.0, 0.0, 1.0e-3,500)
+ratio_module(10,-10.0, -1.0, 1.0e-3,500)

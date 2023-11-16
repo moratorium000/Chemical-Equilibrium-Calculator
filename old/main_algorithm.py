@@ -13,7 +13,7 @@ class valuespace_c:
             self.valuespace[key] = self.valuespace[key] + variants_input
         return
 def kfunction(constspacepar, xinput, valuespacepar, index1_):
-#   kfunction is a function to calculate Q, reaction coefficient, in manner of difference with K, equilibrium constant
+#   kfunction is a function to evaluate Q, reaction coefficient, in a manner of difference with equilibrium constant K
 #   zerodivision error of the fuction results in return value None, the
 #
 #
@@ -83,8 +83,8 @@ def solving(constspacepar, valuespacepar):
 
 
 
-    maxiter = 200
-    tol = 1.00e-7
+    maxiter = 500
+    tol = 1.00e-5
 #    print("valuespace_true[hp]",valuespacepar["hp"])
     if kfunction(constspacepar, 0, valuespacepar, 1) == None:
         print('none run')
@@ -138,9 +138,8 @@ def solving(constspacepar, valuespacepar):
         fminima = kfunction(constspacepar, xminima, valuespacepar, 0)
         xm = (xminima+xmaxima)/2
         value_xm = kfunction(constspacepar, xm, valuespacepar, 0)
-
         err = abs(xmaxima-xminima)/2
-        if abs(err) < tol:
+        if abs(value_xm) < tol:
             x = xm
             return x
         else:
@@ -179,7 +178,7 @@ def equilibriumcalc():
     valuespace_true["oh_"] = oh_new
 #    print("hp_new :",hp_new)
 #    print("oh_new :",oh_new)
-    for timer in range(1000):
+    for timer in range(500):
         for i in constspace_true:
 #            print("valuespace_true hp :", valuespace_true["hp"])
 #           if valuespace_true['hp']/valuespace_true['oh_'] > 1e4 or valuespace_true['hp']/valuespace_true['oh_'] < 1e4:
@@ -198,7 +197,7 @@ def equilibriumcalc():
                 indexright = i['right'].index(pright)
                 valuespace_true[pright] = valuespace_true[pright] + variant_x * i['metadata']['right'][indexright]
             valuespace_true["oh_"] = 1.0e-14 / valuespace_true["hp"]
-#            print("valuespace_true[hp]",valuespace_true["hp"])
+#            print("valuespace_true[hp]", valuespace_true["hp"])
     print(valuespace_true)
 
     return valuespace_true

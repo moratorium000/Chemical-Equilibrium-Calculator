@@ -31,7 +31,7 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
     reader = open("total_chemical_input_data_str.txt", "r")
     alltext = reader.read()
     reader.close()
-    logspace = np.linspace(lower_limit, upper_limit, 50000)
+    logspace = np.linspace(lower_limit, upper_limit, 500)
 
     pH_range = [10**x for x in logspace]
     k = 1
@@ -91,4 +91,4 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input):
 
 
 #2.0e-4,5.0e-4
-ratio_module(7,-5.0, -4.0, 1.0e-2)
+ratio_module(10,-4.0, -2.5, 1.0e-2)
