@@ -1,5 +1,5 @@
 ,
 {
 "chemical" : "sodium bromide",
-"Ions" : ["nap", "br_"],
+"Ions" : ["nap", "cl_"],
 "concentration" :

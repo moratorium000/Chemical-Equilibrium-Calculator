@@ -29,7 +29,7 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
     br_data_back_open.close()
 #    lins_scale = np.linspace(-1, 1, 21)
 #    lins = [3.3e-5 * 10 ** x for x in lins_scale]
-    lins = [3.3e-6 * x for x in range(1, 21, 1)]
+    lins = [3.3e-6 * x for x in range(10, 1010, 10)]
 
 #    for scale in lins_scale:
 #        print(scale)
@@ -73,7 +73,8 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
 
             if -np.log10(data_raw['hp']) == ph_goal_input:
                 data_sample.write(data_raw)
-
+                print("sample done %d" % k)
+                k = k + 1
                 break
             else:
                 if -np.log10(data_raw['hp']) > ph_goal_input:
@@ -86,7 +87,8 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
                                 line = line + ", " + str(values)
                         os.remove('chemical_input_data.txt')
                         data_sample.write(line + "\n")
-                        print("sample done")
+                        print("sample done %d" % k)
+                        k = k+1
                         ph_minmax = [lower_limit, upper_limit]
                         break
 
@@ -105,7 +107,8 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
                                 line = line + ", " + str(values)
                         os.remove('chemical_input_data.txt')
                         data_sample.write(line + "\n")
-                        print("sample done")
+                        print("sample done %d" % k)
+                        k = k + 1
                         ph_minmax = [lower_limit, upper_limit]
                         break
                     else:
@@ -123,7 +126,8 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
                 os.remove('chemical_input_data.txt')
                 data_sample.write(line + "\n")
                 ph_minmax = [lower_limit, upper_limit]
-                print("sample done")
+                print("sample done %d" % k)
+                k = k + 1
 
 
     data_sample.close()
@@ -132,4 +136,4 @@ def ratio_module(ph_goal_input, lower_limit, upper_limit, tol_input, iteration_f
 
 
 #2.0e-4,5.0e-4
-ratio_module(10,-10.0, -1.0, 1.0e-3,500)
+ratio_module(7,-12.0, 0.0, 1.0e-3,500)
