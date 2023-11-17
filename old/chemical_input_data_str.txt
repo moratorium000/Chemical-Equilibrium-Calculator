@@ -17,7 +17,7 @@
 	}
 },
 {
-"chemical" : "chloride",
+"chemical" : "sodium hypochlorite solution chloride content",
 "Ions" : ["cl_"],
 "concentration" : 1.65e-5,
 "stoichiometry" :
